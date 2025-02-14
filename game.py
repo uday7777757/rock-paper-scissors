@@ -13,11 +13,16 @@ def get_winner(player, computer):
         return "Computer wins!"
 
 print("Welcome to Rock-Paper-Scissors!")
-player_choice = input("Enter rock, paper, or scissors: ").lower()
 
-if player_choice not in choices:
-    print("Invalid choice. Try again.")
-else:
+while True:
+    player_choice = input("Enter rock, paper, or scissors (or 'quit' to stop): ").lower()
+    if player_choice == "quit":
+        print("Thanks for playing!")
+        break
+    if player_choice not in choices:
+        print("Invalid choice. Try again.")
+        continue
+
     computer_choice = random.choice(choices)
     print(f"Computer chose: {computer_choice}")
     print(get_winner(player_choice, computer_choice))
